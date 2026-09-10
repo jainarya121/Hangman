@@ -74,7 +74,11 @@ while "_" in display:
         game_over = True
         break
     else:
-        user_input = input("Guess a letter: ").lower()
+        user_input = input("Guess a letter: ").lower().strip()
+
+        while ((not (user_input >= 'a' and user_input <= 'z')) or len(user_input) != 1):
+                print("Enter a valid input.")
+                user_input = input("Guess a letter: ").lower().strip()
 
         if user_input in guesses_made:
             print("Repeated input!")
